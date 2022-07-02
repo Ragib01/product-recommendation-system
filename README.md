@@ -1,7 +1,7 @@
 # product-recommendation-system: A Django project to show weather based product recommendation.
 [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
 ## Database design:
-![logs](https://github.com/Ragib01/product-recommendation-system/blob/main/database.png?raw=true)
+![logs](https://github.com/Ragib01/product-recommendation-system/blob/main/database.PNG?raw=true)
 
 Database configuration:
 ***core/settings.py*** file
