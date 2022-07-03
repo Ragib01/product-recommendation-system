@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from .serializers import CustomUserSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import AllowAny
+from django.contrib import messages
 
 
 class CustomUserCreate(APIView):
@@ -28,6 +29,7 @@ class BlacklistTokenUpdateView(APIView):
             refresh_token = request.data["refresh_token"]
             token = RefreshToken(refresh_token)
             token.blacklist()
-            return Response(status=status.HTTP_205_RESET_CONTENT)
+            messages.success(self.request, 'Logout successful')
+            return Response({'message': 'successfully logout'}, status=status.HTTP_205_RESET_CONTENT)
         except Exception as e:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            return Response({'message': 'logout failed'}, status=status.HTTP_400_BAD_REQUEST)
