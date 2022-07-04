@@ -20,7 +20,7 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ProductSerializer(serializers.ModelSerializer):
+class ProductListSerializer(serializers.ModelSerializer):
     category = CategorySerializer()
     product_type = ProductTypeSerializer()
     weather_type = WeatherTypeSerializer()
@@ -29,3 +29,9 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = '__all__'
         # exclude = []
+
+
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = '__all__'

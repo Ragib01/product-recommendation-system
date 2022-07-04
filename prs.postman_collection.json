@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1baa3770-9b9c-45bf-abb8-382ac532cea8",
+		"_postman_id": "2e3ed746-a60b-460a-b429-e463bcce5740",
 		"name": "prs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "6111904"
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"vendor@prs.com\",\r\n    \"first_name\": \"ragib\",\r\n    \"city\": \"dhaka\",\r\n    \"password\": \"qwe/.,12\"\r\n}",
+							"raw": "{\r\n    \"email\": \"user1@prs.com\",\r\n    \"first_name\": \"ragib\",\r\n    \"city\": \"dhaka\",\r\n    \"password\": \"qwe/.,12\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -96,7 +96,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/token/",
+							"raw": "http://127.0.0.1:8000/api/user/token/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -107,6 +107,7 @@
 							"port": "8000",
 							"path": [
 								"api",
+								"user",
 								"token",
 								""
 							]
@@ -129,7 +130,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/token/refresh/",
+							"raw": "http://127.0.0.1:8000/api/user/token/refresh/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -140,6 +141,7 @@
 							"port": "8000",
 							"path": [
 								"api",
+								"user",
 								"token",
 								"refresh",
 								""
@@ -157,17 +159,153 @@
 					"name": "products list",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU2ODE3NTUyLCJpYXQiOjE2NTY4MTcyNTIsImp0aSI6Ijc1MWE0ZDhjMDgwYzRlNTdhOTNhNGIyZWMxZDI4MDVmIiwidXNlcl9pZCI6OX0.2IVVUbW_u7yS6ps_MDqrw9DUjjFTmH0vQc6TYHrmWIk",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product types",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/product-type/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"product-type",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "weather types",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/weather-type/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"weather-type",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "products search",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/search/?item_name=Men’s Half Sleeve Casual Shirt (Combo Pack)",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"search",
+								""
+							],
+							"query": [
+								{
+									"key": "weather_type",
+									"value": "Rain",
+									"disabled": true
+								},
+								{
+									"key": "item_name",
+									"value": "Men’s Half Sleeve Casual Shirt (Combo Pack)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "products create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU2OTA0NjYyLCJpYXQiOjE2NTY5MDM3NjIsImp0aSI6Ijg0NGRlODhiNmJiYzQ5MDViYTc3OTNkZjg2YTYzMjAzIiwidXNlcl9pZCI6Mn0.CDjQv_LNg6aEFXUz5ERyufePAIO9KJLAgIoUPIZ5aUE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": 2,\r\n    \"product_type\": 2,\r\n    \"weather_type\": \"1\",\r\n    \"item_name\": \"half shirt 2\",\r\n    \"slug\": \"half-shirt-2\",\r\n    \"description\": \"description demo\",\r\n    \"price\": \"500.00\",\r\n    \"label\": \"N\",\r\n    \"vendor\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/products/",
 							"protocol": "http",

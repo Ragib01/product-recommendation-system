@@ -60,12 +60,12 @@ class Product(models.Model):
     description = models.TextField(null=True)
     price = models.FloatField()
     discount_price = models.FloatField(blank=True, null=True)
-    image = models.ImageField(upload_to='static/products')
+    image = models.ImageField(upload_to='static/products', blank=True, max_length=500)
     stock = models.BigIntegerField(default=10)
     label = models.CharField(choices=LABEL, max_length=2)
     published = models.DateTimeField(default=timezone.now)
     vendor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='blog_posts')
-    status = models.CharField(max_length=10, choices=options, default=published)
+    status = models.CharField(max_length=100, choices=options, default=published)
     objects = models.Manager()  # default manager
     postobjects = PostObjects()  # custom manager
 
